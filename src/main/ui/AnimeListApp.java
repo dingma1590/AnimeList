@@ -85,10 +85,13 @@ public class AnimeListApp {
         if (chosen.listSize() == 0) {
             System.out.println("-----List is empty!-----");
         }
-        for (String next: chosen.getTitles()) {
-            System.out.println(next);
-        }
 
+        Integer num = 0;
+        for (AnimeEntry next: chosen.getEntries()) {
+            num++;
+            System.out.println(num + ". " + "Title: " + next.getTitle() + " | " + "Status: "
+                    + next.getStatus().toString() + " | " + "Notes: " + next.getNotes());
+        }
     }
 
     // MODIFIES: this
@@ -143,15 +146,15 @@ public class AnimeListApp {
 
         if (fl.hasEntry(title)) {
             ae = fl.getEntry(title);
-            System.out.println("Title: " + ae.getTitle() + " | " + "List: " + ae.getStatus().toString() + " | "
+            System.out.println("Title: " + ae.getTitle() + " | " + "Status: " + ae.getStatus().toString() + " | "
                     + "Notes: " + ae.getNotes());
         } else if (pl.hasEntry(title)) {
             ae = pl.getEntry(title);
-            System.out.println("Title: " + ae.getTitle() + " | " + "List: " + ae.getStatus().toString() + " | "
+            System.out.println("Title: " + ae.getTitle() + " | " + "Status: " + ae.getStatus().toString() + " | "
                     + "Notes: " + ae.getNotes());
         } else if (wl.hasEntry(title)) {
             ae = wl.getEntry(title);
-            System.out.println("Title: " + ae.getTitle() + " | " + "List: " + ae.getStatus().toString() + " | "
+            System.out.println("Title: " + ae.getTitle() + " | " + "Status: " + ae.getStatus().toString() + " | "
                     + "Notes: " + ae.getNotes());
         } else {
             System.out.println("-----Entry does not exist, please try again.-----");

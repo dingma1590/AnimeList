@@ -41,12 +41,12 @@ public class AnimeList {
     }
 
     // EFFECTS: returns a list of titles
-    public ArrayList<String> getTitles() {
-        ArrayList<String> titles = new ArrayList<>();
+    public ArrayList<AnimeEntry> getEntries() {
+        ArrayList<AnimeEntry> entries = new ArrayList<>();
         for (AnimeEntry next: list) {
-            titles.add(next.getTitle());
+            entries.add(next);
         }
-        return titles;
+        return entries;
     }
 
     // EFFECTS: returns true if entry exists in list

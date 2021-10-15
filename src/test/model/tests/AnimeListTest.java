@@ -6,6 +6,8 @@ import model.lists.AnimeList;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.util.ArrayList;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 // Unit tests for AnimeList
@@ -61,10 +63,14 @@ public class AnimeListTest {
     }
 
     @Test
-    public void getTitlesTest() {
+    public void getEntriesTest() {
         testList.addEntry(e1);
         testList.addEntry(e2);
-        assertEquals(2, testList.getTitles().size());
+        ArrayList<AnimeEntry> temp = new ArrayList<>();
+        temp.add(e1);
+        temp.add(e2);
+        assertEquals(2, testList.getEntries().size());
+        assertEquals(temp, testList.getEntries());
     }
 
     @Test
