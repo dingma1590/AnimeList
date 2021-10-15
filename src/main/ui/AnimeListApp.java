@@ -40,7 +40,7 @@ public class AnimeListApp {
             }
         }
 
-        System.out.println("Session Complete");
+        System.out.println("-----Session Complete-----");
     }
 
     // MODIFIES: this
@@ -55,7 +55,7 @@ public class AnimeListApp {
         } else if (input.equalsIgnoreCase("l")) {
             lookEntry();
         } else {
-            System.out.println("Invalid Input");
+            System.out.println("-----Invalid Input-----");
         }
     }
 
@@ -71,7 +71,7 @@ public class AnimeListApp {
 
     // EFFECTS: print out a menu of options
     private void printMenu() {
-        System.out.println("\nWhat would you like to do?");
+        System.out.println("\n-----What would you like to do?-----");
         System.out.println("\tp -> print out one of the lists");
         System.out.println("\ta -> add a new anime entry");
         System.out.println("\tr -> remove an anime entry");
@@ -83,7 +83,7 @@ public class AnimeListApp {
     private void printList() {
         AnimeList chosen = chooseList();
         if (chosen.listSize() == 0) {
-            System.out.println("List is empty!");
+            System.out.println("-----List is empty!-----");
         }
         for (String next: chosen.getTitles()) {
             System.out.println(next);
@@ -91,15 +91,16 @@ public class AnimeListApp {
 
     }
 
+    // MODIFIES: this
     // EFFECTS: add a new entry to a list
     private void newEntry() {
         AnimeList chosen = chooseList();
         String status;
 
-        System.out.println("\n What's the title?");
+        System.out.println("\n-----What's the title?-----");
         String title = scan.next();
 
-        System.out.println("\n Any notes to add?");
+        System.out.println("\n-----Any notes to add?-----");
         String notes = scan.next();
 
         if (chosen == fl) {
@@ -110,63 +111,71 @@ public class AnimeListApp {
             status = "Watching";
         }
 
-        if (chosen.addEntry(new AnimeEntry(title, AnimeEntry.Status.valueOf(status), notes))) {
-            System.out.println("Added successfully!");
-        } else {
-            System.out.println("Entry already exists, please try again.");
+        if (fl.hasEntry(title) || pl.hasEntry(title) || wl.hasEntry(title)) {
+            System.out.println("-----Entry already exists, please try again.-----");
+        } else if (chosen.addEntry(new AnimeEntry(title, AnimeEntry.Status.valueOf(status), notes))) {
+            System.out.println("-----Added successfully!-----");
         }
     }
 
+    // MODIFIES: this
     // EFFECTS: delete an existing entry
     private void deleteEntry() {
-        System.out.println("\n What's the title?");
+        System.out.println("\n-----What's the title?-----");
         String title = scan.next();
 
         if (fl.removeEntry(title)) {
-            System.out.println("Entry removed from Finished list!");
+            System.out.println("-----Entry removed from Finished list!-----");
         } else if (pl.removeEntry(title)) {
-            System.out.println("Entry removed from Planned list!");
+            System.out.println("-----Entry removed from Planned list!-----");
         } else if (wl.removeEntry(title)) {
-            System.out.println("Entry removed from Watching list!");
+            System.out.println("-----Entry removed from Watching list!-----");
         } else {
-            System.out.println("Entry does not exist, please try again.");
+            System.out.println("-----Entry does not exist, please try again.-----");
         }
     }
 
     // EFFECTS: returns the information of a given entry
     private void lookEntry() {
-        System.out.println("\n What's the title?");
+        System.out.println("\n-----What's the title?-----");
         String title = scan.next();
         AnimeEntry ae;
 
         if (fl.hasEntry(title)) {
             ae = fl.getEntry(title);
-            System.out.println("Title: " + ae.getTitle() + " " + "List: " + ae.getStatus().toString() + " "
+            System.out.println("Title: " + ae.getTitle() + " | " + "List: " + ae.getStatus().toString() + " | "
                     + "Notes: " + ae.getNotes());
         } else if (pl.hasEntry(title)) {
             ae = pl.getEntry(title);
-            System.out.println("Title: " + ae.getTitle() + " " + "List: " + ae.getStatus().toString() + " "
+            System.out.println("Title: " + ae.getTitle() + " | " + "List: " + ae.getStatus().toString() + " | "
                     + "Notes: " + ae.getNotes());
         } else if (wl.hasEntry(title)) {
             ae = wl.getEntry(title);
-            System.out.println("Title: " + ae.getTitle() + " " + "List: " + ae.getStatus().toString() + " "
+            System.out.println("Title: " + ae.getTitle() + " | " + "List: " + ae.getStatus().toString() + " | "
                     + "Notes: " + ae.getNotes());
         } else {
-            System.out.println("Entry does not exist, please try again.");
+            System.out.println("-----Entry does not exist, please try again.-----");
         }
     }
 
     // EFFECTS: prompts user to choose a list and returns it
     private AnimeList chooseList() {
-        String chosen = "";
+        String chosen = null;
+        boolean asking = true;
 
-        while (!(chosen.equalsIgnoreCase("fl") || chosen.equalsIgnoreCase("pl")
-                || chosen.equalsIgnoreCase("wl"))) {
-            System.out.println("fl for Finished List");
-            System.out.println("pl for Planned List");
-            System.out.println("wl for Watching List");
+        while (asking) {
+            System.out.println("\n-----Choose a list-----");
+            System.out.println("\tfl -> Finished List");
+            System.out.println("\tpl -> Planned List");
+            System.out.println("\twl -> Watching List");
             chosen = scan.next();
-            System.out.println("Invalid Input");
+
+            if (!(chosen.equalsIgnoreCase("fl") || chosen.equalsIgnoreCase("pl")
+                    || chosen.equalsIgnoreCase("wl"))) {
+                System.out.println("-----Invalid Input-----");
+            } else {
+                asking = false;
+            }
         }
 
         if (chosen.equalsIgnoreCase("fl")) {
