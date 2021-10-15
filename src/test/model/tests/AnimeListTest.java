@@ -5,9 +5,8 @@ import model.lists.AnimeList;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 // Unit tests for AnimeList
 public class AnimeListTest {
@@ -59,5 +58,29 @@ public class AnimeListTest {
 
         testList.addEntry(e3);
         assertEquals(3, testList.listSize());
+    }
+
+    @Test
+    public void getTitlesTest() {
+        testList.addEntry(e1);
+        testList.addEntry(e2);
+        assertEquals(2, testList.getTitles().size());
+    }
+
+    @Test
+    public void hasEntryTest() {
+        testList.addEntry(e1);
+        testList.addEntry(e2);
+        assertTrue(testList.hasEntry("Anime1"));
+        assertFalse(testList.hasEntry("Anime3"));
+    }
+
+    @Test
+    public void getEntryTest() {
+        testList.addEntry(e1);
+        testList.addEntry(e2);
+        assertEquals(e1, testList.getEntry("Anime1"));
+        assertEquals(e2, testList.getEntry("Anime2"));
+        assertNull(testList.getEntry("Anime3"));
     }
 }

@@ -39,4 +39,34 @@ public class AnimeList {
     public int listSize() {
         return list.size();
     }
+
+    // EFFECTS: returns a list of titles
+    public ArrayList<String> getTitles() {
+        ArrayList<String> titles = new ArrayList<>();
+        for (AnimeEntry next: list) {
+            titles.add(next.getTitle());
+        }
+        return titles;
+    }
+
+    // EFFECTS: returns true if entry exists in list
+    public boolean hasEntry(String t) {
+        for (AnimeEntry next: list) {
+            if (t.equalsIgnoreCase(next.getTitle())) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    // REQUIRES: Entry of given string to exist in list
+    // EFFECTS: returns the entry of given title
+    public AnimeEntry getEntry(String t) {
+        for (AnimeEntry next: list) {
+            if (t.equalsIgnoreCase(next.getTitle())) {
+                return next;
+            }
+        }
+        return null;
+    }
 }

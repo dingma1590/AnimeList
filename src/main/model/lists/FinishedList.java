@@ -1,5 +1,6 @@
 package model.lists;
 
-public class FinishedList extends AnimeList{
+
+public class FinishedList extends AnimeList {
 
 }
