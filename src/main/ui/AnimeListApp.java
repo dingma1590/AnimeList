@@ -9,7 +9,8 @@ import model.lists.WatchingList;
 import java.util.Scanner;
 
 // anime list application
-// partially adapted from CPSC 210 TellerApp
+// This class references code from CPSC 210 TellerApp
+// Link: https://github.students.cs.ubc.ca/CPSC210/TellerApp
 public class AnimeListApp {
     private AnimeList fl;
     private AnimeList pl;
@@ -71,7 +72,7 @@ public class AnimeListApp {
 
     // EFFECTS: print out a menu of options
     private void printMenu() {
-        System.out.println("\n-----What would you like to do?-----");
+        System.out.println("\033[1;95m" + "\n-----What would you like to do?-----" + "\033[0m");
         System.out.println("\tp -> print out one of the lists");
         System.out.println("\ta -> add a new anime entry");
         System.out.println("\tr -> remove an anime entry");
