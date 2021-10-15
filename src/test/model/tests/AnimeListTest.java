@@ -11,17 +11,21 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 // Unit tests for AnimeList
 public class AnimeListTest {
-    private AnimeList testList;
+    AnimeList testList;
     private AnimeEntry e1;
     private AnimeEntry e2;
     private AnimeEntry e3;
 
     @BeforeEach
-    public void setUp() {
+    public void setUp1() {
+        testList = new AnimeList();
+    }
+
+    @BeforeEach
+    public void setUp2() {
         e1 = new AnimeEntry("Anime1", AnimeEntry.Status.Finished, "Great!");
         e2 = new AnimeEntry("Anime2", AnimeEntry.Status.Watching, "meh");
         e3 = new AnimeEntry("Anime3", AnimeEntry.Status.Planned, "bad");
-        testList = new AnimeList();
     }
 
     @Test
