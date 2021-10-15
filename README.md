@@ -4,9 +4,9 @@
 
 In this project, I will create an application similar to a todo-list, but is catered towards keeping track of
 anime titles. This app will contain several lists (*subject to change*):
-- a "finished" list
-- a "watching" list
-- and a "plan to watch" list
+- a *finished* list
+- a *watching* list
+- and a *plan to watch* list
 
 Users will be able to add and remove entries from the lists, sort the lists, and modify the entries in the lists. Certain 
 modifications on the lists will be automatic (such as moving an entry from the *watching* list to the *finished* list 
