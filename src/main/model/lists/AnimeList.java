@@ -4,6 +4,7 @@ import model.AnimeEntry;
 
 import java.util.ArrayList;
 
+// Represents a list of anime entries
 public class AnimeList {
     ArrayList<AnimeEntry> list;
 
