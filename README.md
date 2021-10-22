@@ -21,3 +21,5 @@ are missing in the current tools available.
 - As a user, I want to be able to remove an entry from each list.
 - As a user, I want to be able to view a list of entries for each list.
 - As a user, I want to be able to see the information of a particular given entry.
+- As a user, I want to be able to save my anime lists to file
+- As a user, I want to be able to load my anime lists from file
