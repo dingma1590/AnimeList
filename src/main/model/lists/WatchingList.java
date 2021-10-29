@@ -10,6 +10,7 @@ import java.util.ArrayList;
 // Represents a list of entries of anime currently watching
 public class WatchingList extends AnimeList {
 
+    // constructor
     public WatchingList() {
         list = new ArrayList<>();
         type = AnimeEntry.Status.Watching.toString();

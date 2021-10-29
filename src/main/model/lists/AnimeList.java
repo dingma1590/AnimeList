@@ -12,6 +12,7 @@ public class AnimeList implements Writable {
     ArrayList<AnimeEntry> list;
     String type;
 
+    // constructor
     public AnimeList() {
         list = new ArrayList<>();
         type = "none";
@@ -82,6 +83,7 @@ public class AnimeList implements Writable {
     }
 
     @Override
+    // EFFECTS creates a new json object
     public JSONObject toJson() {
         JSONObject json = new JSONObject();
         json.put("type", type);

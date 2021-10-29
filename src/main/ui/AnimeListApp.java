@@ -13,8 +13,9 @@ import java.io.IOException;
 import java.util.Scanner;
 
 // anime list application
-// This class references code from CPSC 210 TellerApp
-// Link: https://github.students.cs.ubc.ca/CPSC210/TellerApp
+// This class references code from CPSC 210 TellerApp, and JsonSerializationDemo
+// Link: https://github.students.cs.ubc.ca/CPSC210/TellerApp,
+// https://github.students.cs.ubc.ca/CPSC210/JsonSerializationDemo
 public class AnimeListApp {
     private static final String JSON_STORE1 = "./data/finished.json";
     private static final String JSON_STORE2 = "./data/planned.json";

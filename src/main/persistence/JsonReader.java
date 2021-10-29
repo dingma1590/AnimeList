@@ -14,7 +14,9 @@ import model.lists.PlannedList;
 import model.lists.WatchingList;
 import org.json.*;
 
-// Represents a reader that reads workroom from JSON data stored in file
+// Represents a reader that reads anime lists from JSON data stored in file
+// This class references code from CPSC 210 JsonSerializationDemo
+// Link: https://github.students.cs.ubc.ca/CPSC210/JsonSerializationDemo
 public class JsonReader {
     private String source;
 

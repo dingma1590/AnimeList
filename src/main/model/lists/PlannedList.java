@@ -10,6 +10,7 @@ import java.util.ArrayList;
 // Represents a list of entries of planned to watch anime
 public class PlannedList extends AnimeList {
 
+    // constructor
     public PlannedList() {
         list = new ArrayList<>();
         type = AnimeEntry.Status.Planned.toString();

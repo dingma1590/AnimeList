@@ -38,6 +38,7 @@ public class AnimeEntry implements Writable {
     }
 
     @Override
+    // EFFECTS: creates a json object from an anime entry
     public JSONObject toJson() {
         JSONObject json = new JSONObject();
         json.put("title", title);

@@ -10,6 +10,7 @@ import java.util.ArrayList;
 // Represents a list of entries of finished anime
 public class FinishedList extends AnimeList {
 
+    // constructor
     public FinishedList() {
         list = new ArrayList<>();
         type = AnimeEntry.Status.Finished.toString();

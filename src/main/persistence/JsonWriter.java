@@ -7,6 +7,8 @@ import org.json.JSONObject;
 import java.io.*;
 
 // Represents a writer that writes JSON representation of anime list to file
+// This class references code from CPSC 210 JsonSerializationDemo
+// Link: https://github.students.cs.ubc.ca/CPSC210/JsonSerializationDemo
 public class JsonWriter {
     private static final int TAB = 4;
     private PrintWriter writer;
