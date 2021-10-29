@@ -5,20 +5,33 @@ import model.lists.AnimeList;
 import model.lists.FinishedList;
 import model.lists.PlannedList;
 import model.lists.WatchingList;
+import persistence.JsonReader;
+import persistence.JsonWriter;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.Scanner;
 
 // anime list application
 // This class references code from CPSC 210 TellerApp
 // Link: https://github.students.cs.ubc.ca/CPSC210/TellerApp
 public class AnimeListApp {
+    private static final String JSON_STORE1 = "./data/finished.json";
+    private static final String JSON_STORE2 = "./data/planned.json";
+    private static final String JSON_STORE3 = "./data/watching.json";
     private AnimeList fl;
     private AnimeList pl;
     private AnimeList wl;
     private Scanner scan;
+    private JsonWriter jsonWriter1;
+    private JsonReader jsonReader1;
+    private JsonWriter jsonWriter2;
+    private JsonReader jsonReader2;
+    private JsonWriter jsonWriter3;
+    private JsonReader jsonReader3;
 
     // EFFECTS: run the anime list application
-    public AnimeListApp() {
+    public AnimeListApp() throws FileNotFoundException {
         runAnimeList();
     }
 
@@ -55,6 +68,10 @@ public class AnimeListApp {
             deleteEntry();
         } else if (input.equalsIgnoreCase("l")) {
             lookEntry();
+        } else if (input.equalsIgnoreCase("save")) {
+            saveLists();
+        } else if (input.equalsIgnoreCase("load")) {
+            loadLists();
         } else {
             System.out.println("-----Invalid Input-----");
         }
@@ -68,6 +85,12 @@ public class AnimeListApp {
         wl = new WatchingList();
         scan = new Scanner(System.in);
         scan.useDelimiter("\n");
+        jsonWriter1 = new JsonWriter(JSON_STORE1);
+        jsonReader1 = new JsonReader(JSON_STORE1);
+        jsonWriter2 = new JsonWriter(JSON_STORE2);
+        jsonReader2 = new JsonReader(JSON_STORE2);
+        jsonWriter3 = new JsonWriter(JSON_STORE3);
+        jsonReader3 = new JsonReader(JSON_STORE3);
     }
 
     // EFFECTS: print out a menu of options
@@ -77,6 +100,8 @@ public class AnimeListApp {
         System.out.println("\ta -> add a new anime entry");
         System.out.println("\tr -> remove an anime entry");
         System.out.println("\tl -> look up an anime entry");
+        System.out.println("\tsave -> save lists to file");
+        System.out.println("\tload -> load lists from file");
         System.out.println("\te -> exit the application");
     }
 
@@ -191,4 +216,40 @@ public class AnimeListApp {
         }
     }
 
+    // EFFECTS: saves the lists to file
+    private void saveLists() {
+        try {
+            jsonWriter1.open();
+            jsonWriter1.write(fl);
+            jsonWriter1.close();
+            jsonWriter2.open();
+            jsonWriter2.write(pl);
+            jsonWriter2.close();
+            jsonWriter3.open();
+            jsonWriter3.write(wl);
+            jsonWriter3.close();
+            System.out.println("Saved " + fl.getType() + " list to " + JSON_STORE1);
+            System.out.println("Saved " + pl.getType() + " list to " + JSON_STORE2);
+            System.out.println("Saved " + wl.getType() + " list to " + JSON_STORE3);
+        } catch (FileNotFoundException e) {
+            System.out.println("Unable to write to file: " + JSON_STORE1 + " or " + JSON_STORE3 + " or "
+                    + JSON_STORE3);
+        }
+    }
+
+    // MODIFIES: this
+    // EFFECTS: loads lists from file
+    private void loadLists() {
+        try {
+            fl = jsonReader1.read();
+            pl = jsonReader2.read();
+            wl = jsonReader3.read();
+            System.out.println("Loaded " + fl.getType() + " list from " + JSON_STORE1);
+            System.out.println("Loaded " + pl.getType() + " list from " + JSON_STORE2);
+            System.out.println("Loaded " + wl.getType() + " list from " + JSON_STORE3);
+        } catch (IOException e) {
+            System.out.println("Unable to read from file: " + JSON_STORE1 + " or " + JSON_STORE3 + " or "
+                    + JSON_STORE3);
+        }
+    }
 }

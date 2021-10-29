@@ -89,4 +89,9 @@ public class AnimeListTest {
         assertEquals(e2, testList.getEntry("Anime2"));
         assertNull(testList.getEntry("Anime3"));
     }
+
+    @Test
+    public void getTypeTest() {
+        assertEquals("none", testList.getType());
+    }
 }

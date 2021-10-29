@@ -1,15 +1,20 @@
 package model.lists;
 
 import model.AnimeEntry;
+import org.json.JSONArray;
+import org.json.JSONObject;
+import persistence.Writable;
 
 import java.util.ArrayList;
 
 // Represents a list of anime entries
-public class AnimeList {
+public class AnimeList implements Writable {
     ArrayList<AnimeEntry> list;
+    String type;
 
     public AnimeList() {
         list = new ArrayList<>();
+        type = "none";
     }
 
     // MODIFIES: this
@@ -69,5 +74,29 @@ public class AnimeList {
             }
         }
         return null;
+    }
+
+    // EFFECTS: return the list's type
+    public String getType() {
+        return type;
+    }
+
+    @Override
+    public JSONObject toJson() {
+        JSONObject json = new JSONObject();
+        json.put("type", type);
+        json.put("list", listToJson());
+        return json;
+    }
+
+    // EFFECTS: returns anime entries in this list as a JSON array
+    private JSONArray listToJson() {
+        JSONArray jsonArray = new JSONArray();
+
+        for (AnimeEntry next : list) {
+            jsonArray.put(next.toJson());
+        }
+
+        return jsonArray;
     }
 }

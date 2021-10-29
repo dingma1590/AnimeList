@@ -1,7 +1,10 @@
 package model;
 
+import org.json.JSONObject;
+import persistence.Writable;
+
 // Represents an anime entry with its title, status, and special notes.
-public class AnimeEntry {
+public class AnimeEntry implements Writable {
     private String title;
 
     // Status can be one of Finished, Planned, or Watching
@@ -32,5 +35,14 @@ public class AnimeEntry {
     // EFFECTS: returns notes
     public String getNotes() {
         return notes;
+    }
+
+    @Override
+    public JSONObject toJson() {
+        JSONObject json = new JSONObject();
+        json.put("title", title);
+        json.put("status", status);
+        json.put("notes", notes);
+        return json;
     }
 }
