@@ -1,6 +1,5 @@
 package ui;
 
-import model.AnimeEntry;
 import model.lists.AnimeList;
 import model.lists.FinishedList;
 import model.lists.PlannedList;
