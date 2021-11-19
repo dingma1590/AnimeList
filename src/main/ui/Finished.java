@@ -3,11 +3,13 @@ package ui;
 import model.AnimeEntry;
 import model.lists.AnimeList;
 
-import java.awt.*;
-import java.awt.event.*;
 import javax.swing.*;
-import javax.swing.event.*;
+import javax.swing.event.DocumentEvent;
+import javax.swing.event.DocumentListener;
 import javax.swing.table.DefaultTableModel;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 // Button for the finished list
 public class Finished extends JPanel {
