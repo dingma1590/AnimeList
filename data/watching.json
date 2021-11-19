@@ -1,8 +1,4 @@
 {
     "type": "Watching",
-    "list": [{
-        "notes": "yes",
-        "title": "boom",
-        "status": "Watching"
-    }]
+    "list": []
 }
