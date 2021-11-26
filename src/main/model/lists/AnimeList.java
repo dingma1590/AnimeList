@@ -1,6 +1,8 @@
 package model.lists;
 
 import model.AnimeEntry;
+import model.Event;
+import model.EventLog;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import persistence.Writable;
@@ -27,6 +29,7 @@ public class AnimeList implements Writable {
             }
         }
         list.add(ae);
+        EventLog.getInstance().logEvent(new Event("Added " + ae.getTitle() + " to " + type));
         return true;
     }
 
@@ -36,6 +39,7 @@ public class AnimeList implements Writable {
         for (AnimeEntry next: list) {
             if (t.equalsIgnoreCase(next.getTitle())) {
                 list.remove(next);
+                EventLog.getInstance().logEvent(new Event("Removed " + t + " from " + type));
                 return true;
             }
         }

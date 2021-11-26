@@ -18,7 +18,7 @@ import org.json.*;
 // This class references code from CPSC 210 JsonSerializationDemo
 // Link: https://github.students.cs.ubc.ca/CPSC210/JsonSerializationDemo
 public class JsonReader {
-    private String source;
+    private final String source;
 
     // EFFECTS: constructs reader to read from source file
     public JsonReader(String source) {

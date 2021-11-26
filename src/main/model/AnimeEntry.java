@@ -5,15 +5,15 @@ import persistence.Writable;
 
 // Represents an anime entry with its title, status, and special notes.
 public class AnimeEntry implements Writable {
-    private String title;
+    private final String title;
 
     // Status can be one of Finished, Planned, or Watching
     public enum Status {
         Finished, Planned, Watching
     }
 
-    private Status status;
-    private String notes;
+    private final Status status;
+    private final String notes;
 
     // EFFECTS: AnimeEntry has given title, status, and notes
     public AnimeEntry(String title, Status status, String notes) {

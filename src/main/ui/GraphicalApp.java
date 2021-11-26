@@ -1,5 +1,7 @@
 package ui;
 
+import model.Event;
+import model.EventLog;
 import model.lists.AnimeList;
 import model.lists.FinishedList;
 import model.lists.PlannedList;
@@ -183,11 +185,24 @@ public class GraphicalApp {
         jsonReader3 = new JsonReader(JSON_STORE3);
     }
 
+    // EFFECTS: prints the event log to console
+    public static void printLog(EventLog el) {
+        for (Event next: el) {
+            System.out.println(next.toString());
+        }
+    }
+
     // MODIFIES: this
     // EFFECTS: Set up and display the window.
     public static void createAndShowGUI() throws IOException {
         frame = new JFrame("My Anime List");
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.addWindowListener(new java.awt.event.WindowAdapter() {
+            @Override
+            public void windowClosing(java.awt.event.WindowEvent windowEvent) {
+                printLog(EventLog.getInstance());
+                System.exit(0);
+            }
+        });
 
         JComponent newContentPane = createUI();
         newContentPane.setOpaque(true); //content panes must be opaque

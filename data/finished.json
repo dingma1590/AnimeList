@@ -1,15 +1,8 @@
 {
     "type": "Finished",
-    "list": [
-        {
-            "notes": "King of Science is Physics!!!",
-            "title": "Hawk",
-            "status": "Finished"
-        },
-        {
-            "notes": "",
-            "title": "d",
-            "status": "Finished"
-        }
-    ]
+    "list": [{
+        "notes": "1",
+        "title": "aot",
+        "status": "Finished"
+    }]
 }

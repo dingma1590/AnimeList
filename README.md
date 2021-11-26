@@ -23,3 +23,16 @@ are missing in the current tools available.
 - As a user, I want to be able to see the information of a particular given entry.
 - As a user, I want to be able to save my anime lists to file
 - As a user, I want to be able to load my anime lists from file
+
+###Phase 4: Task 2:
+Added Eighty Six to Watching\
+Thu Nov 25 17:23:41 PST 2021\
+Added Love Live! to Planned\
+Thu Nov 25 17:24:26 PST 2021\
+Added Komi san to Planned\
+Thu Nov 25 17:24:35 PST 2021\
+Removed Love Live! from Planned\
+Thu Nov 25 17:24:58 PST 2021\
+Removed Eighty Six from Watching\
+Thu Nov 25 17:25:12 PST 2021\
+Added Eighty Six to Finished

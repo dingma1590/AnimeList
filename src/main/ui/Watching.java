@@ -19,9 +19,9 @@ public class Watching extends JPanel {
     private JTextField entryName1;
     private JTextField entryName2;
     private JTextField entryName3;
-    private JTable table;
+    private final JTable table;
 
-    private String[] col = {"title", "notes"};
+    private final String[] col = {"title", "notes"};
     DefaultTableModel tableModel;
 
     // constructor for watching list
@@ -93,7 +93,7 @@ public class Watching extends JPanel {
     // event listener for remove button and its text field
     class RemoveListener implements ActionListener, DocumentListener {
         private boolean alreadyEnabled = false;
-        private JButton button;
+        private final JButton button;
 
         public RemoveListener(JButton button) {
             this.button = button;
@@ -147,7 +147,7 @@ public class Watching extends JPanel {
     // event listener for add button and its text fields
     class AddListener implements ActionListener, DocumentListener {
         private boolean alreadyEnabled = false;
-        private JButton button;
+        private final JButton button;
 
         public AddListener(JButton button) {
             this.button = button;
