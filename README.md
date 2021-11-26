@@ -36,3 +36,9 @@ Thu Nov 25 17:24:58 PST 2021\
 Removed Eighty Six from Watching\
 Thu Nov 25 17:25:12 PST 2021\
 Added Eighty Six to Finished
+
+###Phase 4: Task 3:
+Possible improvements to the design:
+- Make *AnimeList* an abstract class as only its subtypes are being instantiated outside of tests.
+- Following the previous point, tests shouldn't be instantiating *AnimeList*.
+- Apply inheritance to the classes *Finished*, *Planned*, and *Watching* since their functions are the same.
