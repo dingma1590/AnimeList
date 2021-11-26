@@ -91,7 +91,7 @@ public class Planned extends JPanel {
     }
 
     // event listener for remove button and its text field
-    class RemoveListener implements ActionListener, DocumentListener {
+    private class RemoveListener implements ActionListener, DocumentListener {
         private boolean alreadyEnabled = false;
         private final JButton button;
 
@@ -145,7 +145,7 @@ public class Planned extends JPanel {
     }
 
     // event listener for add button and its text fields
-    class AddListener implements ActionListener, DocumentListener {
+    private class AddListener implements ActionListener, DocumentListener {
         private boolean alreadyEnabled = false;
         private final JButton button;
 
