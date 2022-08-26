@@ -3,9 +3,9 @@ package model;
 import java.util.Calendar;
 import java.util.Date;
 
-
+// This class references code from CPSC Alarm System program
 /**
- * Represents an alarm system event.
+ * Represents an Anime List Event
  */
 public class Event {
     private static final int HASH_CONSTANT = 13;
